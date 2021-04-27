@@ -6,136 +6,118 @@
 print("#####q1#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
-  # 以下に回答を記載
+array_push($names,"斎藤");
+print_r($names);
 
-$names[] = '斎藤';
-
-var_dump($names);
 echo PHP_EOL;
-?>
 
 
-<?php
+
+
 print("#####q2#####".PHP_EOL);
 $array1 = ["dog", "cat", "fish"];
 $array2 = ["bird", "bat", "tiger"];
 
-  # 以下に回答を記載
-  print_r(array_merge($array1, $array2));
-  echo PHP_EOL;
-?>
+$array = array_merge($array1,$array2);
+
+print_r($array);
+
+echo PHP_EOL;
 
 
 
-<?php
+
+
 print("#####q3#####".PHP_EOL);
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
-  # 以下に回答を記載
-//array_count_valuesを使用して値の使用回数をカウントする
-$numbers_count = array_count_values($numbers);
-
-foreach($numbers_count as $key => $value){
-  echo 'key : '.$key;
-  echo ' value : '.$value;
+$count = 0;
+foreach($nymbers as $number){
+   if($number === 3){
+     $count++;
+   }
 }
+
+print_r($count . "回".PHP_EOL);
+
 echo PHP_EOL;
-?>
 
 
-<?php
+
+
 print("#####q4#####".PHP_EOL);
 $sports = ["サッカー", "フットサル", null, "野球", "バスケ", null, "バレー"];
-
-  # 以下に回答を記載
-
-  
 
 //削除実行
 $result = array_diff($sports, array(null));
 //indexを詰める
 $result = array_values($result);
-
 //削除結果
-var_dump($result);
-echo PHP_EOL;
-?>
+print_r($result);
 
-<?php
+echo PHP_EOL;
+
+
+
 print("#####q5#####".PHP_EOL);
 $array1 = [];
 $array2 = [1, 5, 8, 10];
 
-  # 以下に回答を記載
-
-
-
-      $array1=[];
-          if (empty($array1)){
-              echo "true";
-          }else{
-              echo "false";
-          }
+$array1=[];
+if (empty($array1)){
+    echo "true";
+}else{
+    echo "false";
+}
  
-
-
-
+echo PHP_EOL;
 
 $array2=[1, 5, 8, 10];
-    if (empty($array2)){
-        echo "true";
-    }else{
-        echo "false";
-    }
-    echo PHP_EOL;
-?>
+if (empty($array2)){
+  echo "true";
+}else{
+  echo "false";
+}
+
+echo PHP_EOL;
 
 
 
 
-<?php
 print("#####q6#####".PHP_EOL);
 $numbers1 = [1, 2, 3, 4, 5];
 
-  # 以下に回答を記載
-
-  // <!-- ループの中で配列の要素を直接変更したい場合は、 $value の前に & をつけます。
-  // こうすると、変数には リファレンス が代入されることになります。 -->
-
-    foreach ($numbers1 as &$number) {
-    $number = $number * 10;
+$numbers2 = [];
+foreach($numbers1 as $number){
+    $number *= 10;
+    array_push($numbers2,$number);
 }
-// $arr は array(2, 4, 6, 8) となります
-    unset($number); // 最後の要素への参照を解除します
-    var_dump($numbers1);
-
+print_r($numbers2);
 
 echo PHP_EOL;
-?>
 
-<?php
+
+
 print("#####q7#####".PHP_EOL);
 $array = ["1", "2", "3", "4", "5"];
+$array = array_map('intval',$array);
 
-  # 以下に回答を記載
-  $array = strval($array);
-  # 以下は変更しないで下さい
 var_dump($array);
 
 echo PHP_EOL;
-?>
 
-<?php
+
+
 print("#####q8#####".PHP_EOL);
 $programming_languages = ["php","ruby","python","javascript"];
 $upper_case_programming_languages = ["php","ruby","python","javascript"];
   # 以下に回答を記載
-  foreach ($programming_languages as &$programming) {
+foreach ($programming_languages as &$programming) {
     $programming = ucwords($programming);
 }
 
 foreach ($upper_case_programming_languages as &$upper_case) {
-  $upper_case = strtoupper($upper_case);
+    $upper_case = strtoupper($upper_case);
 }
   # 以下は変更しないで下さい
 print_r($programming_languages);
@@ -143,9 +125,9 @@ echo PHP_EOL;
 print_r($upper_case_programming_languages);
 
 echo PHP_EOL;
-?>
 
-<?php
+
+
 print("#####q9#####".PHP_EOL);
 $names = ["田中", "佐藤", "佐々木", "高橋"];
 
@@ -156,11 +138,10 @@ foreach($names as $key => $name){
     array_push($names2,$name2);
 }
 print_r($names2);
+
 echo PHP_EOL;
 
-?>
 
-<?php
 print("#####q10#####".PHP_EOL);
 
 $foods = ["いか","たこ","うに","しゃけ","うにぎり","うに軍艦","うに丼","高級なうに"];
@@ -174,9 +155,7 @@ foreach($foods as $food){
 }
 
 echo PHP_EOL;
-?>
 
-<?php
 print("#####q11#####".PHP_EOL);
 $sports = ["サッカー", "バスケ", "野球", ["フットサル", "野球"], "水泳", "ハンドボール", ["卓球", "サッカー", "ボルダリング"]];
 
@@ -203,35 +182,31 @@ foreach($sports3 as $sport){
 }
 
 echo PHP_EOL;
-?>
 
-<?php
+
+
 print("#####q12#####".PHP_EOL);
 $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
 
-
 $data = [ "user" => [ "name" => "satou", "age" => 33 ] ];
+
 $value1 = $data["user"];
 $value2 = $value1["name"];
 
-var_dump($value2);
+print_r($value2);
 
 echo PHP_EOL;
-?>
 
-<?php
+
 print("#####q13#####".PHP_EOL);
 $user_data = [ "name" => "神里", "age" => 31, "address" => "埼玉"];
 $update_data = [ "age" => 32, "address" => "沖縄" ];
 
- $result = array_merge($user_data,$update_data);
-  var_dump($result);
+$user_data = array_merge($user_data,$update_data);
+print_r($user_data);
+
 echo PHP_EOL;
-?>
 
-
-
-<?php
 print("#####q14#####".PHP_EOL);
 $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com" ];
 
@@ -240,36 +215,30 @@ $keys = array_keys($data);
 
 print_r($keys);
 
-
 echo PHP_EOL;
-?>
 
-<?php
+
+
 print("#####q15#####".PHP_EOL);
 $data1 = [ "name" => "saitou", "hobby" => "soccer", "age" => 33, "role" => "admin" ];
-$data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
-
-$search = "age";
-$key = array_search($search, $data1);
 
 if( array_key_exists('age',$data1) ) {
-  print('OK'.PHP_EOL);
+    print('OK'.PHP_EOL);
 } else {
-  print('NG'.PHP_EOL);
+    print('NG'.PHP_EOL);
 }
 
 $data2 = [ "name" => "yamada", "hobby" => "baseball", "role" => "normal" ];
 
 if(array_key_exists('age',$data2) ) {
-  print('OK'.PHP_EOL);
+    print('OK'.PHP_EOL);
 } else {
-  print('NG'.PHP_EOL);
+    print('NG'.PHP_EOL);
 }
 
 echo PHP_EOL;
-?>
 
-<?php
+
 print("#####q16#####".PHP_EOL);
 $users = [
     [ "name" => "satou", "age" => 22 ],
@@ -284,7 +253,6 @@ foreach($users as $key => $user){
 
 echo PHP_EOL;
 
-?>
 
 print("#####q17#####".PHP_EOL);
 class User
