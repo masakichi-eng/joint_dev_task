@@ -32,7 +32,7 @@ print("#####q3#####".PHP_EOL);
 $numbers = [1, 5, 8, 10, 2, 3, 2, 3, 3, 1, 4, 5, 9];
 
 $count = 0;
-foreach($nymbers as $number){
+foreach($numbers as $number){
    if($number === 3){
      $count++;
    }
@@ -210,10 +210,12 @@ echo PHP_EOL;
 print("#####q14#####".PHP_EOL);
 $data = [ "name" => "satou", "age" => 33, "address" => "saitama", "hobby" => "soccer", "email" => "hoge@fuga.com" ];
 
-// 連想配列のkeyを抽出し、配列にして返却
-$keys = array_keys($data);
+$new_data = [];
+foreach($data as $one_data){
+    array_push($new_data,$one_data);
+}
 
-print_r($keys);
+print_r($new_data);
 
 echo PHP_EOL;
 
