@@ -260,7 +260,21 @@ print("#####q17#####".PHP_EOL);
 class User
 {
 
-  # コードを追加
+    protected $name;
+    protected $age;
+    protected $gender;
+
+    function __construct($user_name,$user_age,$user_gender) {
+        $this->name = $user_name;
+        $this->age = $user_age;
+        $this->gender = $user_gender;
+    }
+
+    function info() {
+        print("名前:".$this->name.PHP_EOL);
+        print("年齢:".$this->age.PHP_EOL);
+        print("性別:".$this->gender.PHP_EOL);
+    }
 
 }
 
@@ -275,7 +289,26 @@ echo PHP_EOL;
 
 print("#####q18#####".PHP_EOL);
 
-  # コードを追加
+class Man
+{
+
+    protected $name;
+    protected $age;
+
+    function __construct($user_name,$user_age) {
+        $this->name = $user_name;
+        $this->age = $user_age;
+    }
+
+    function introduce() {
+        if($this->age >= 20){
+            print("こんにちは,".$this->name."と申します。宜しくお願いいたします。".PHP_EOL);
+        }else{
+            print("はいさいまいど〜，".$this->name."です！！！".PHP_EOL);
+        }
+    }
+
+}
 
 $man1 = new Man("あじー",32);
 $man2 = new Man("ゆたぼん",10);
@@ -289,13 +322,14 @@ print("#####q19#####".PHP_EOL);
 class Item{
   # 以下を修正して下さい
 
-  protected $name;
+  public $name;
+  //protected $name;
 
   function __construct($book_name){
-    $this->name = $book_name;
+      $this->name = $book_name;
   }
 }
-  # 以下は変更しないで下さい
+# 以下は変更しないで下さい
 
 $book = new Item("ゼロ秒思考");
 print($book->name.PHP_EOL);
@@ -306,14 +340,38 @@ print("#####q20#####".PHP_EOL);
 class Human
 {
 
-  # コードを追加
+    public $name;
+    public $age;
+
+    function __construct($user_name,$user_age) {
+        $this->name = $user_name;
+        $this->age = $user_age;
+    }
 
 }
 
 class Zoo
 {
 
-  # コードを追加
+    protected $name;
+    protected $entry_fee;
+
+    function __construct($zoo_name,$zoo_entry_fee) {
+        $this->name = $zoo_name;
+        $this->entry_fee = $zoo_entry_fee;
+    }
+
+    function info_entry_fee(Human $human) {
+        if($human->age <= 5){
+            print($human->name."さんの入場料金は ".$this->entry_fee["infant"]." 円です。".PHP_EOL);
+        }elseif($human->age <= 12){
+            print($human->name."さんの入場料金は ".$this->entry_fee["children"]." 円です。".PHP_EOL);
+        }elseif($human->age <= 64){
+            print($human->name."さんの入場料金は ".$this->entry_fee["adult"]." 円です。".PHP_EOL);
+        }elseif($human->age <= 120){
+            print($human->name."さんの入場料金は ".$this->entry_fee["senior"]." 円です。".PHP_EOL);
+        }
+    }
 
 }
 
@@ -327,7 +385,37 @@ $human4 = new Human("ぎん",108);
 $humans = [ $human1, $human2, $human3, $human4 ];
 
 foreach($humans as $human){
-  $zoo->info_entry_fee($human);
+    $zoo->info_entry_fee($human);
 }
 
 echo PHP_EOL;
+
+
+print("#####q21#####".PHP_EOL);
+
+// - 1 から 30 までの正の整数で
+// - 3 の倍数で Fizz を出力
+// - 5 の倍数で Buzz を出力
+// - 7 の倍数で Hoge を出力
+// - それ以外は数値を出力
+
+// ※但し 15 は FizzBuzz, 21 は FizzHoge など、公倍数は複数単語が出力されるようにすること。
+
+for ($i = 1; $i <= 30; $i++){
+  $result = '';
+
+ if ($i % 3 == 0 ){
+    $result .= 'Fizz';
+ }
+ if ($i % 5 == 0 ){
+    $result .= 'Buzz';
+ }
+ if ($i % 7 == 0 ){
+    $result .= 'Hoge';
+ }
+ if ($result == '') {
+    $result .= (string) $i;
+ }
+
+  echo $result. PHP_EOL;
+}
